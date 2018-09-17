@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app" style="width: 300px;height: 300px;margin: 30px auto 0 auto">
+  <wheel-update-number :text="text" :first-also-use="false" :font-size="16" :duration=".5"></wheel-update-number>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="../dist/wheel-number.js"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      text: '991,999'
+    },
+    mounted() {
+      setTimeout(() => {
+        this.text = '40998'
+        setTimeout(() => {
+          this.text = '40918'
+          setTimeout(() => {
+            this.text = '40128'
+            setTimeout(() => {
+              this.text = '52128'
+            }, 2000)
+          }, 2000)
+        }, 2000)
+      }, 2000)
+    }
+  })
+</script>
+</html>

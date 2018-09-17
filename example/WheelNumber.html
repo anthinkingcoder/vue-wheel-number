@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app" style="width: 300px;height: 300px;margin: 30px auto 0 auto">
+  <wheel-number :text="text" :font-size="16"></wheel-number>
+
+  <span style="font-size: 16px;display: inline-block;line-height: 22px">39,998</span>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="../dist/wheel-number.js"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      text: '39,998'
+    },
+    mounted() {
+    }
+  })
+</script>
+</html>
