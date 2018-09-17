@@ -1,16 +1,14 @@
-# vue-circle-progress
+# vue-wheel-number
 vue component of wheel number
 
 # install
  ```bash
  $ npm i vue-wheel-number -s
  ```
- 
 # demo
 ```
  /example
 ```
- 
 # use npm
 ```js
   import Vue from 'Vue'
