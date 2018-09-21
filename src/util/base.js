@@ -17,7 +17,7 @@ function getTextWh(el, text, fontSize) {
   const textElement = document.createElement('span')
   const styles = [...Object.keys(HIDDEN_STYLE).map(function (key) {
     return key + ':' + HIDDEN_STYLE[key];
-  }), `fontSize:${fontSize}px`].join(';');
+  }), `font-size:${fontSize}px`].join(';');
   element.setAttribute('style', styles)
   textElement.innerHTML = text
   element.appendChild(textElement)
