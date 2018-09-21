@@ -72,6 +72,7 @@
         return {
           ...EL_BASE_STYLE,
           height: `${this.curHeight}px`,
+          lineHeight: `${this.curHeight}px`,
           'font-size': `${this.fontSize}px`
         }
       }
