@@ -23,6 +23,9 @@ function getTextWh(el, text, fontSize) {
   element.appendChild(textElement)
   document.body.appendChild(element)
   const rect = textElement.getBoundingClientRect()
+  setTimeout(() => {
+    document.body.removeChild(element)
+  })
   return {
     width: rect.width,
     height: rect.height,
