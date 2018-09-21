@@ -21,7 +21,7 @@ function getTextWh(el, text, fontSize) {
   element.setAttribute('style', styles)
   textElement.innerHTML = text
   element.appendChild(textElement)
-  el.appendChild(element)
+  document.body.appendChild(element)
   const rect = textElement.getBoundingClientRect()
   return {
     width: rect.width,
