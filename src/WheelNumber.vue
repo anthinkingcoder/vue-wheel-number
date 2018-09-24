@@ -11,7 +11,8 @@
   const EL_BASE_STYLE = {
     position: 'relative',
     'text-align': 'center',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    display:'inline-flex'
   }
 
   const NUMBER_BASE_STYLE = {
@@ -93,6 +94,7 @@
           ...TEXT_BASE_STYLE,
           height: `${this.curHeight}px`,
           lineHeight: `${this.curHeight}px`,
+          transform: `translate(0,0)`,
         }
         if (!this.calcNotNumberWidth) {
           styles.width = `${this.curWidth}px`

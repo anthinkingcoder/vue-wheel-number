@@ -245,7 +245,7 @@
           ...this.getTransitionStyle(duration),
           ...this.getWidthHeightStyle(this.curWidth, word),
           opacity: opacity,
-          transform: `translate(0,${transformY}px)`,
+          transform: `translate3d(0,${transformY}px,0)`,
         }
       }
     }
