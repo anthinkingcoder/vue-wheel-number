@@ -91,7 +91,9 @@
       },
       textStyles() {
         const styles = {
-          ...TEXT_BASE_STYLE
+          ...TEXT_BASE_STYLE,
+          height: `${this.curHeight}px`,
+          lineHeight: `${this.curHeight}px`,
         }
         if (!this.calcNotNumberWidth) {
           styles.width = `${this.curWidth}px`
