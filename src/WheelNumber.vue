@@ -10,7 +10,6 @@
 <script>
   const EL_BASE_STYLE = {
     position: 'relative',
-    display: 'flex',
     'text-align': 'center',
     overflow: 'hidden'
   }
