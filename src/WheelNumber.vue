@@ -18,7 +18,7 @@
   const NUMBER_BASE_STYLE = {
     position: 'relative',
     display: 'inline-block',
-    transform: 'translate(0, 0)',
+    transform: 'translate3d(0, 0,0)',
     'word-break': 'break-all',
     'text-align': 'center'
   }
@@ -70,12 +70,12 @@
       }
     },
     mounted() {
-      this.init(this.text)
+      this.init(String(this.text))
 
     },
     watch: {
       text(text) {
-        this.init(text)
+        this.init(String(text))
       }
     },
     methods: {
@@ -84,7 +84,7 @@
           ...NUMBER_BASE_STYLE,
           width: `${this.curWidth}px`,
           height: `${this.curHeight * 10}px`,
-          transform: `translate(0,${y}px)`,
+          transform: `translate3d(0,${y}px,0)`,
           lineHeight: `${this.curHeight}px`,
           transition: `transform ${this.duration * c}s`
         }
@@ -94,7 +94,7 @@
           ...TEXT_BASE_STYLE,
           height: `${this.curHeight}px`,
           lineHeight: `${this.curHeight}px`,
-          transform: `translate(0,0)`,
+          transform: `translate(0,0,0)`,
         }
         if (!this.calcNotNumberWidth) {
           styles.width = `${this.curWidth}px`

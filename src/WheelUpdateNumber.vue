@@ -2,7 +2,7 @@
   <div :style="styles">
     <div>
             <span v-for="i in currentText.length" :key="i"
-                   :style="oldStyles[i - 1]">
+                  :style="oldStyles[i - 1]">
               {{currentText.charAt(i - 1)}}
             </span>
     </div>
@@ -65,7 +65,7 @@
     },
     mounted() {
       this.updateCalcTextEl()
-      this.update(this.text)
+      this.update(String(this.text))
     },
     computed: {
       styles() {
@@ -79,7 +79,7 @@
     },
     watch: {
       text(newText) {
-        this.update(newText)
+        this.update(String(newText))
       }
     },
     methods: {
