@@ -15,7 +15,7 @@
 </template>
 
 <script>
-  import {getTextWh, timeout} from './util/base'
+  import {getTextWh, timeout} from '../util/base'
 
   const TEXT_BASE_STYLE = {
     'text-align': 'center',
@@ -30,7 +30,6 @@
   export default {
     props: {
       text: {},
-      height: {},
       firstAlsoUse: {},
       duration: {
         default: .3
@@ -38,8 +37,8 @@
       filter: {
         default: 'none' //all,gt,equal,lt
       },
-      mode: {
-        default: 'singe'
+      singeUpdate: {
+        default: true
       },
       fontSize: {
         default: 12
@@ -49,6 +48,9 @@
       calcNotNumberWidth: {
         default: true
       },
+      delay: {
+        default: .0
+      }
     },
     data() {
       return {
@@ -84,7 +86,7 @@
     },
     methods: {
       checkFilter(newLength, oldLength) {
-        if (this.mode === 'all') {
+        if (!this.singeUpdate) {
           return true
         }
         const filter = this.filter
@@ -123,8 +125,8 @@
             for (let i = 0; i < length; i++) {
               const oldChar = currentText.charAt(i)
               const newChar = newText.charAt(i)
-              if (oldChar !== newChar || this.mode === 'all') {
-                if (!oldChar && currentText && this.mode !== 'all') {
+              if (oldChar !== newChar || !this.singeUpdate) {
+                if (!oldChar && currentText && !this.singeUpdate) {
                   this.appendNew().then(() => {
                     doUpdate(i)
                   })
@@ -148,7 +150,9 @@
             })
           }
         })
-
+        timeout(this.duration * 1000).then(() => {
+          this.$emit('finished')
+        })
       },
       init() {
         let oldTags = []
@@ -169,7 +173,7 @@
         this.newTags = newTags
         this.oldTags = oldTags
         this.numberTags = numberTags
-        return timeout(0)
+        return timeout(this.delay * 1000)
       },
       appendNew() {
         return new Promise((resolve) => {

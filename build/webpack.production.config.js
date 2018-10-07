@@ -7,8 +7,8 @@ module.exports = merge(webpackBaseConfig, {
   output: {
     path: resolve('/dist'),
     publicPath: "/dist/",
-    filename: 'wheel-number.min.js',
-    library: "wheel-number",
+    filename: 'jump-number.min.js',
+    library: "jump-number",
     libraryTarget: "umd",
     umdNamedDefine: true
   },

@@ -12,7 +12,7 @@
     position: 'relative',
     'text-align': 'center',
     overflow: 'hidden',
-    display:'inline-flex'
+    display: 'inline-flex'
   }
 
   const NUMBER_BASE_STYLE = {
@@ -27,7 +27,7 @@
     position: 'relative',
     display: 'inline-block'
   }
-  import {getTextWh, timeout} from './util/base'
+  import {getTextWh, timeout} from '../util/base'
 
   export default {
     props: {
@@ -37,7 +37,7 @@
       singeNumberWidth: {},
       singeNumberHeight: {},
       delay: {
-        default: .3
+        default: 0
       },
       duration: {
         default: .3
@@ -47,11 +47,14 @@
       },
       calcNotNumberWidth: {
         default: true
+      },
+      beginZero: {
+        default: false
       }
     },
     data() {
       return {
-        currentText: this.text,
+        currentText: '',
         data: [],
         currentY: 0,
         calcTextEl: '',
@@ -79,14 +82,21 @@
       }
     },
     methods: {
-      numberStyles(y, c) {
+      numberStyles(y, c, index) {
+        let duration = this.duration * c
+        if (!this.beginZero && this.currentText) {
+          const number = parseInt(this.currentText.charAt(index))
+          if (!Number.isNaN(number)) {
+            duration = Math.abs(c - number) * this.duration
+          }
+        }
         return {
           ...NUMBER_BASE_STYLE,
           width: `${this.curWidth}px`,
           height: `${this.curHeight * 10}px`,
           transform: `translate3d(0,${y}px,0)`,
           lineHeight: `${this.curHeight}px`,
-          transition: `transform ${this.duration * c}s`
+          transition: `transform ${duration}s`
         }
       },
       textStyles() {
@@ -105,16 +115,21 @@
         if (!text) {
           return
         }
-        const zero = text.replace(/[0-9]/gi, '0')
         this.updateCalcTextEl();
-        this.update(zero)
+        if (this.beginZero || !this.currentText) {
+          const zero = text.replace(/[0-9]/gi, '0')
+          this.update(zero)
+        }
+
         timeout(this.delay * 1000).then(() => {
           this.update(text)
+          this.currentText = text
         })
         const maxNumber = Math.max(...text.replace(/\D/gi, '').split(''))
         timeout((this.delay + maxNumber * this.duration) * 1000).then(() => {
           this.$emit('finished')
         })
+
       },
       updateCalcTextEl() {
         if (!this.textWh) {
@@ -125,7 +140,7 @@
         this.curHeight = this.singeNumberHeight || height
       },
       update(text) {
-        this.data = String(text).split('').map(c => {
+        this.data = String(text).split('').map((c, index) => {
           if (Number.isNaN(parseInt(c))) {
             return {
               value: c,
@@ -135,7 +150,7 @@
           } else {
             return {
               value: '0123456789',
-              style: this.numberStyles(-this.curHeight * c, c),
+              style: this.numberStyles(-this.curHeight * c, c, index),
               className: 'c-xwheelnumber__number'
             }
           }

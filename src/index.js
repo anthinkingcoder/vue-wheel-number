@@ -1,21 +1,17 @@
-import WheelUpdateNumber from './WheelUpdateNumber.vue'
-import WheelNumber from './WheelNumber.vue'
+import JumpNumber from './JumpNumber.vue'
 
 const install = function (Vue) {
-  Vue.component('wheel-number', WheelNumber);
-  Vue.component('wheel-update-number', WheelUpdateNumber);
+  Vue.component('jump-number', JumpNumber);
 };
 if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue);
 }
 
 export {
-  WheelNumber,
-  WheelUpdateNumber
+  JumpNumber
 }
 
 export default {
   install,
-  WheelNumber,
-  WheelUpdateNumber
+  JumpNumber
 }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app" style="width: 300px;height: 300px;margin: 30px auto 0 auto">
+  <jump-number :text="text" :font-size="32" :begin-zero="false" :type="type" @finished="finish"></jump-number>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="../dist/jump-number.min.js"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      text: '39,998',
+      type: 'one'
+    },
+    mounted() {
+
+    },
+    methods: {
+      finish (type) {
+        if (type === 'one') {
+          this.type = 'two'
+          setTimeout(() => {
+            this.text = '39,999'
+            setTimeout(() => {
+              this.text = '40,000'
+              setTimeout(() => {
+                this.text = '40,203'
+              },2000)
+            },2000)
+          },2000)
+        }
+      }
+    }
+  })
+</script>
+</html>
