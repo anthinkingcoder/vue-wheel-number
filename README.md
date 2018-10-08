@@ -16,10 +16,10 @@ vue component of wheel number
   Vue.use(WheelNumber)
   
   //or
-  import {WheelNumber,WheelUpdateNumber} from 'vue-wheel-number'
+  import JumpNumber from 'vue-wheel-number'
   export default {
     components: {
-      WheelNumber,WheelUpdateNumber
+      JumpNumber
     }
   }
 ```
