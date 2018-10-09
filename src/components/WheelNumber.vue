@@ -12,13 +12,17 @@
     position: 'relative',
     'text-align': 'center',
     overflow: 'hidden',
-    display: 'inline-flex'
+    'display': '-webkit-box',
+    'display': '-webkit-flex',
+    'display': '-ms-flexbox',
+    'display': 'flex',
   }
 
   const NUMBER_BASE_STYLE = {
     position: 'relative',
     display: 'inline-block',
     transform: 'translate3d(0, 0,0)',
+    '-webkit-transform': 'translate3d(0, 0,0)',
     'word-break': 'break-all',
     'text-align': 'center'
   }
