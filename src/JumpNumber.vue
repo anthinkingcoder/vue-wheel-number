@@ -12,8 +12,6 @@
 
   ></wheel-number>
 
-
-
   <wheel-update-number v-else-if="type==='two'"
                        :text="text"
                        :singeNumberWidth="singeNumberWidth"
@@ -80,8 +78,3 @@
 
   }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
-</style>

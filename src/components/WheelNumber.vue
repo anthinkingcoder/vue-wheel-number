@@ -104,7 +104,7 @@
           ...TEXT_BASE_STYLE,
           height: `${this.curHeight}px`,
           lineHeight: `${this.curHeight}px`,
-          transform: `translate(0,0,0)`,
+          transform: `translate3d(0,0,0)`,
         }
         if (!this.calcNotNumberWidth) {
           styles.width = `${this.curWidth}px`
@@ -141,7 +141,9 @@
       },
       update(text) {
         this.data = String(text).split('').map((c, index) => {
+
           if (Number.isNaN(parseInt(c))) {
+            console.log(c)
             return {
               value: c,
               style: this.textStyles(),
@@ -163,5 +165,3 @@
   }
 </script>
 
-<style type="text/scss" lang="scss">
-</style>
