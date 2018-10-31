@@ -4,7 +4,7 @@
   "description": "vue component of wheel number",
   "author": "anthinkingcoder jojo837769723@gmail.com",
   "private": false,
-  "main": "dist/jump-number.js",
+  "main": "dist/wheel-number.js",
   "scripts": {
     "build": "webpack --config build/webpack.production.config.js",
     "dev": "webpack --config build/webpack.dev.config.js"
