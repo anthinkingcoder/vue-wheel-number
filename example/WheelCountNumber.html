@@ -6,7 +6,7 @@
 </head>
 <body>
 <div id="app" style="width: 300px;height: 300px;margin: 30px auto 0 auto">
-  <jump-number :text="text" :font-size="16" type="one"></jump-number>
+  <wheel-count-number :text="text"></wheel-count-number>
 </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
@@ -15,18 +15,11 @@
   var app = new Vue({
     el: '#app',
     data: {
-      text: '9876'
+      text: '998',
     },
     mounted() {
-      setTimeout(() => {
-        this.text = '39,999'
-//        setTimeout(() => {
-//          this.text = '40,000'
-//          setTimeout(() => {
-//            this.text = '39,998'
-//          },1000)
-//        },1000)
-      },1000)
+    },
+    methods: {
     }
   })
 </script>

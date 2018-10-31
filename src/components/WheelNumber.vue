@@ -145,9 +145,7 @@
       },
       update(text) {
         this.data = String(text).split('').map((c, index) => {
-
           if (Number.isNaN(parseInt(c))) {
-            console.log(c)
             return {
               value: c,
               style: this.textStyles(),
