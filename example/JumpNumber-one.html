@@ -15,17 +15,17 @@
   var app = new Vue({
     el: '#app',
     data: {
-      text: '9876'
+      text: '666'
     },
     mounted() {
       setTimeout(() => {
-        this.text = '39,999'
-//        setTimeout(() => {
-//          this.text = '40,000'
-//          setTimeout(() => {
-//            this.text = '39,998'
-//          },1000)
-//        },1000)
+        this.text = '888'
+       setTimeout(() => {
+         this.text = '2222'
+         setTimeout(() => {
+         this.text = '888'
+       },2000)
+       },1000)
       },1000)
     }
   })
